@@ -1,15 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"learning-lote-go/codetop"
-)
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
 
 func main() {
-	nums := []int{3, 2, 1, 5, 6, 4}
-	// sout 5
-	fmt.Println(codetop.FindKthLargest(nums, 2))
-	nums = []int{3, 2, 3, 1, 2, 4, 5, 5, 6}
-	// sout 4
-	fmt.Println(codetop.FindKthLargest(nums, 4))
+	h := &ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}}
+
 }

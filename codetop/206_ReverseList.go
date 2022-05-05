@@ -1,10 +1,5 @@
 package codetop
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 // ReverseList 迭代法
 func ReverseList(head *ListNode) *ListNode {
 	if head == nil {
