@@ -1,14 +1,16 @@
 package codetop
 
+import "learning-lote-go/codetop/common"
+
 // ReverseList 迭代法
-func ReverseList(head *ListNode) *ListNode {
+func ReverseList(head *common.ListNode) *common.ListNode {
 	if head == nil {
 		return head
 	}
 	// 遍历节点
-	var p *ListNode = head
+	var p = head
 	// 前驱结点
-	var prep *ListNode = nil
+	var prep *common.ListNode = nil
 	for p != nil {
 		// 临时节点保存 p.next
 		var tmp = p.Next
@@ -23,14 +25,14 @@ func ReverseList(head *ListNode) *ListNode {
 
 // ReverseList1 递归法
 // 递归函数返回反转后链表的新节点
-func ReverseList1(head *ListNode) *ListNode {
+func ReverseList1(head *common.ListNode) *common.ListNode {
 	if head == nil {
 		return head
 	}
 	return reverse(head)
 }
 
-func reverse(head *ListNode) *ListNode {
+func reverse(head *common.ListNode) *common.ListNode {
 	if head.Next == nil {
 		return head
 	}

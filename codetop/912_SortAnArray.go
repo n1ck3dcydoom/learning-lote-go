@@ -7,6 +7,14 @@ func SortArray(nums []int) []int {
 	return nums
 }
 
+func bubbleSort(nums []int) {
+	n := len(nums)
+	// n 个数需要 n 趟排序
+	for i := 0; i < n; i++ {
+		// 每次从第一个
+	}
+}
+
 func quickSort1(nums []int, l, r int) {
 
 	if l > r {
