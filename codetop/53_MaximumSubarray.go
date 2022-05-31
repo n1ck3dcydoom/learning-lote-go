@@ -1,5 +1,7 @@
 package codetop
 
+import "learning-lote-go/codetop/common"
+
 func MaxSubArray(nums []int) int {
 	// 动态规划
 	// 第一步、定义 dp[i] 表示以 i 结尾的子序列的最大和
@@ -20,7 +22,7 @@ func MaxSubArray(nums []int) int {
 		} else {
 			dp[i] = nums[i-1]
 		}
-		res = max(res, dp[i])
+		res = common.Max(res, dp[i])
 	}
 	return res
 }
