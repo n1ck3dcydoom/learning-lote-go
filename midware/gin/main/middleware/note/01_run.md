@@ -21,7 +21,7 @@ func main() {
 
 ### Run() 方法
 
-![img.png](./pic/img01.png)
+![img01.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvpgnuj30m709ljx3.jpg)
 
 可以看到 `Run()` 方法大概做了 3 件事
 
@@ -41,7 +41,7 @@ func main() {
 
 这是 gin 的核心函数,其依赖于 go 语言内置的 `net` 库实现
 
-![img.png](./pic/img02.png)
+![img02.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvnvo2j30ir06ladw.jpg)
 
 注意,外面传入的是 `gin.engine` 到这里变成了 go 语言 `net` 库的 `Handler` 接口对象
 
@@ -53,7 +53,7 @@ func main() {
 
 跟进 `Handler` 接口,找到对应的 gin 实现 engine 对象
 
-![img.png](./pic/img03.png)
+![img03.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvra9xj30jf06w42g.jpg)
 
 `engin.pool.Get()` 获取一个 gin 自己封装的 `Context` 对象,注意这里不是 go 原生的 `Context` 对象
 
@@ -104,13 +104,13 @@ func (engine *Engine) handleHTTPRequest(c *Context) {
 
 ### 先来看 Next() 函数
 
-![img.png](./pic/img04.png)
+![img04.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvsw2xj30io05y0vq.jpg)
 
 还记得之前的 `gin.engine` 对象吗? `engine` 实现了 `ServeHTTP` 接口,在里面封装了 gin 关于 http 请求的处理
 
 其中 `c.reset()` 初始化 `Context` 上下文对象的时候,有设置 index 的值为 -1
 
-![img.png](./pic/img05.png)
+![img05.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvmytfj309203fgm8.jpg)
 
 这说明还没有 `handler` 函数处理的时候,`Context` 上下文里面保存的处理索引是从 `-1` 开始计算
 
@@ -143,13 +143,13 @@ func (c *Context) Next() {
 
 一路跟进去看源码
 
-![img.png](./pic/img06.png)
+![img06.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvmodrj308903yq3f.jpg)
 
 可以看到 gin 维护了一个 `[]methodTree` 数组,数组里面每个元素都是一个路由树节点对象,分别保存了当前路由的方法 `method` 和当前路由的根节点 `root`
 
 继续跟进树节点 `node` 看看怎么实现的
 
-![img_1.png](./pic/img07.png)
+![img07.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvxqjkj30m5062q5u.jpg)
 
 其实路由树就是一棵 **紧凑前缀树**
 
@@ -168,7 +168,7 @@ func (c *Context) Next() {
 
 此时生成的路由前缀树如下:
 
-![img_1.png](./pic/img08.png)
+![img08.png](https://tva1.sinaimg.cn/large/008vK57jgy1h7kefvvkzyj307007z74p.jpg)
 
 通过路由树可以快速的检索到对应的的路由节点,至于路由如何注册在这里暂且不表
 
