@@ -7,6 +7,10 @@ import (
 
 func main() {
 	r := gin.Default()
+	// r.Group()
+	r.GET("/person/eat")
+	r.GET("/person/laugh")
+	r.GET("/person/lying")
 
 	r.Handle("GET", "/ping", func(c *gin.Context) {
 		var name string
