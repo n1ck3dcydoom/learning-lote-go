@@ -2,43 +2,10 @@ package main
 
 import (
 	"fmt"
-	"learning-lote-go/codetop/common"
-	"learning-lote-go/leetcode/greedy"
+	"learning-lote-go/leetcode/dp"
 )
 
 func main() {
-	root := &common.TreeNode{
-		Val: 1,
-		Left: &common.TreeNode{
-			Val: 2,
-			Left: &common.TreeNode{
-				Val: 4,
-				Left: &common.TreeNode{
-					Val: 8,
-				},
-				Right: &common.TreeNode{
-					Val: 9,
-				},
-			},
-			Right: &common.TreeNode{
-				Val: 5,
-				Left: &common.TreeNode{
-					Val: 10,
-				},
-				Right: &common.TreeNode{
-					Val: 11,
-				},
-			},
-		},
-		Right: &common.TreeNode{
-			Val: 3,
-			Left: &common.TreeNode{
-				Val: 6,
-			},
-			Right: &common.TreeNode{
-				Val: 7,
-			},
-		},
-	}
-	fmt.Println(greedy.BtreeGameWinningMove(root, 11, 3))
+	stones := []int{3, 2, 4, 1}
+	fmt.Println(dp.MergeStones(stones, 2))
 }
