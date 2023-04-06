@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"learning-lote-go/leetcode/dp"
+	"learning-lote-go/leetcode/math"
 )
 
 func main() {
-	stones := []int{3, 2, 4, 1}
-	fmt.Println(dp.MergeStones(stones, 2))
+	fmt.Println(math.BaseNeg2(2))
+	fmt.Println(math.BaseNeg2(3))
+	fmt.Println(math.BaseNeg2(4))
 }
