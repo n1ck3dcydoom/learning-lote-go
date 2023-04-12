@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"learning-lote-go/leetcode/simulate"
+	"learning-lote-go/leetcode/greedy"
 )
 
 func main() {
-	fmt.Println(simulate.IsRobotBounded("GG"))
+	fmt.Println(greedy.LongestDecomposition("ghiabcdefhelloadamhelloabcdefghi"))
+	fmt.Println(greedy.LongestDecomposition("aaa"))
+	fmt.Println(greedy.LongestDecomposition("elvtoelvto"))
 }
