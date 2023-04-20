@@ -6,10 +6,12 @@ import (
 )
 
 func main() {
-	// Output: 4
-	fmt.Println(dp.LengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18}))
-	// Output: 4
-	fmt.Println(dp.LengthOfLIS([]int{0, 1, 0, 3, 2, 3}))
 	// Output: 1
-	fmt.Println(dp.LengthOfLIS([]int{7, 7, 7, 7, 7, 7, 7}))
+	fmt.Println(dp.MakeArrayIncreasing([]int{1, 5, 3, 6, 7}, []int{1, 3, 2, 4}))
+	// Output: 2
+	fmt.Println(dp.MakeArrayIncreasing([]int{1, 5, 3, 6, 7}, []int{4, 3, 1}))
+	// Output: -1
+	fmt.Println(dp.MakeArrayIncreasing([]int{1, 5, 3, 6, 7}, []int{1, 6, 3, 3}))
+	// Output: 8
+	fmt.Println(dp.MakeArrayIncreasing([]int{5, 16, 19, 2, 1, 12, 7, 14, 5, 16}, []int{6, 17, 4, 3, 6, 13, 4, 3, 18, 17, 16, 7, 14, 1, 16}))
 }
