@@ -2,51 +2,14 @@ package main
 
 import (
 	"fmt"
-	"learning-lote-go/codetop/common"
-	"learning-lote-go/leetcode/tree"
+	"learning-lote-go/leetcode/dp"
 )
 
 func main() {
-	root1 := &common.TreeNode{
-		Val: 8,
-		Left: &common.TreeNode{
-			Val: 3,
-			Left: &common.TreeNode{
-				Val: 1,
-			},
-			Right: &common.TreeNode{
-				Val: 6,
-				Left: &common.TreeNode{
-					Val: 4,
-				},
-				Right: &common.TreeNode{
-					Val: 7,
-				},
-			},
-		},
-		Right: &common.TreeNode{
-			Val: 10,
-			Right: &common.TreeNode{
-				Val: 14,
-				Left: &common.TreeNode{
-					Val: 13,
-				},
-			},
-		},
-	}
-	fmt.Println(tree.MaxAncestorDiff(root1))
-
-	root2 := &common.TreeNode{
-		Val: 1,
-		Right: &common.TreeNode{
-			Val: 2,
-			Right: &common.TreeNode{
-				Val: 0,
-				Left: &common.TreeNode{
-					Val: 3,
-				},
-			},
-		},
-	}
-	fmt.Println(tree.MaxAncestorDiff(root2))
+	// Output: 4
+	fmt.Println(dp.LengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18}))
+	// Output: 4
+	fmt.Println(dp.LengthOfLIS([]int{0, 1, 0, 3, 2, 3}))
+	// Output: 1
+	fmt.Println(dp.LengthOfLIS([]int{7, 7, 7, 7, 7, 7, 7}))
 }
