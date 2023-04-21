@@ -2,6 +2,7 @@ package greedy
 
 import (
 	"learning-lote-go/codetop/common"
+	"learning-lote-go/leetcode/base"
 )
 
 var ps, ls, rs int
@@ -35,14 +36,7 @@ func BtreeGameWinningMove(root *common.TreeNode, n int, x int) bool {
 	dfs(root)
 	// 判断父节点,左后孩子节点个数,取较大值
 	ps = n - ls - rs - 1
-	max := max(ps, max(ls, rs))
+	max := base.MaxInt(ps, base.MaxInt(ls, rs))
 	// 判断是否能够取胜
 	return max > n-max
-}
-
-func max(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
 }

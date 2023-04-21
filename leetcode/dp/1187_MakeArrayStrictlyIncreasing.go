@@ -1,6 +1,7 @@
 package dp
 
 import (
+	"learning-lote-go/leetcode/base"
 	"math"
 	"sort"
 )
@@ -63,7 +64,7 @@ func MakeArrayIncreasing(arr1 []int, arr2 []int) int {
 		// 扫描替换次数，从 0 次到 len(arr2) 次
 		// 由于可以从 arr1 和 arr2 里各选一个索引进行替换
 		// 扫描次数取 arr1 的遍历索引 i 和 len(arr2) 较小值
-		for j := 0; j <= minInt(i, len(arr2)); j++ {
+		for j := 0; j <= base.MinInt(i, len(arr2)); j++ {
 			// 不进行替换
 			if arr1[i-1] > dp[i-1][j] {
 				dp[i][j] = arr1[i-1]
@@ -74,7 +75,7 @@ func MakeArrayIncreasing(arr1 []int, arr2 []int) int {
 				// 如果 t == math.MaxInt 表示在 arr2 里面找不到能够替换的数
 				k := search(arr2, dp[i-1][j-1])
 				if k != math.MaxInt {
-					dp[i][j] = minInt(dp[i][j], arr2[k])
+					dp[i][j] = base.MinInt(dp[i][j], arr2[k])
 				}
 			}
 
@@ -115,11 +116,4 @@ func search(arr []int, t int) int {
 		return math.MaxInt
 	}
 	return r
-}
-
-func minInt(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }

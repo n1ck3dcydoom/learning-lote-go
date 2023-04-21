@@ -1,6 +1,9 @@
 package dp
 
-import "math"
+import (
+	"learning-lote-go/leetcode/base"
+	"math"
+)
 
 func MergeStones(stones []int, k int) int {
 	// 首先判断 k 和 n 是否存在解
@@ -69,16 +72,9 @@ func MergeStones(stones []int, k int) int {
 		// 枚举第 1 堆的所有合并方法
 		res = math.MaxInt
 		for m := i; m < j; m += k - 1 {
-			res = min(res, dfs(i, m, 1)+dfs(m+1, j, p-1))
+			res = base.MinInt(res, dfs(i, m, 1)+dfs(m+1, j, p-1))
 		}
 		return res
 	}
 	return dfs(0, n-1, 1)
-}
-
-func min(a, b int) int {
-	if a > b {
-		return b
-	}
-	return a
 }

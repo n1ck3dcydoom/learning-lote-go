@@ -2,7 +2,7 @@ package tree
 
 import (
 	"learning-lote-go/codetop/common"
-	"math"
+	"learning-lote-go/leetcode/base"
 )
 
 func MaxAncestorDiff(root *common.TreeNode) int {
@@ -17,8 +17,8 @@ func MaxAncestorDiff(root *common.TreeNode) int {
 func dfs(root *common.TreeNode) (min, max, ans int) {
 	if root == nil {
 		// 空节点，min 返回最大值，max 返回最小值
-		// 这样空节点的父节点做 minInt 和 maxInt 计算的时候会忽略掉空节点的最值
-		return math.MaxInt, math.MinInt, ans
+		// 这样空节点的父节点做 base.MinInt 和 base.MaxInt 计算的时候会忽略掉空节点的最值
+		return math.base.MaxInt, math.base.MinInt, ans
 	}
 	// 叶子结点返回自己的 val 值
 	if root.Left == nil && root.Right == nil {
@@ -28,33 +28,12 @@ func dfs(root *common.TreeNode) (min, max, ans int) {
 	rmin, rmax, rans := dfs(root.Right)
 
 	// 计算 node 节点的 min 和 max
-	min = minInt(lmin, rmin)
-	max = maxInt(lmax, rmax)
+	min = base.MinInt(lmin, rmin)
+	max = base.MaxInt(lmax, rmax)
 
 	// 保存中间结果的最大差值
 
-	ans = maxInt(absInt(root.Val-min), absInt(root.Val-max))
-	ans = maxInt(ans, maxInt(lans, rans))
-	return minInt(min, root.Val), maxInt(max, root.Val), ans
-}
-
-func absInt(ans int) int {
-	if ans < 0 {
-		return -ans
-	}
-	return ans
-}
-
-func maxInt(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
-}
-
-func minInt(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+	ans = base.MaxInt(base.AbsInt(root.Val-min), base.AbsInt(root.Val-max))
+	ans = base.MaxInt(ans, base.MaxInt(lans, rans))
+	return base.MinInt(min, root.Val), base.MaxInt(max, root.Val), ans
 }
