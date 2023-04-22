@@ -1,10 +1,7 @@
 package dp
 
-<<<<<<< HEAD
 import "learning-lote-go/leetcode/base"
 
-=======
->>>>>>> c596a6f (Leetcode 300. 最长上升子序列 (LIS 动态规划))
 func LengthOfLIS(nums []int) int {
 	// LIS 问题，典型的 dp
 	n := len(nums)
@@ -31,7 +28,6 @@ func LengthOfLIS(nums []int) int {
 		// 遍历前面的每个数，找到每个能够组成更长上升子序列的位置
 		for j := 0; j < i; j++ {
 			if nums[j] < nums[i] {
-<<<<<<< HEAD
 				dp[i] = base.MaxInt(dp[i], dp[j]+1)
 			}
 		}
@@ -39,19 +35,3 @@ func LengthOfLIS(nums []int) int {
 	}
 	return ans
 }
-=======
-				dp[i] = maxInt(dp[i], dp[j]+1)
-			}
-		}
-		ans = maxInt(ans, dp[i])
-	}
-	return ans
-}
-
-func maxInt(a, b int) int {
-	if a < b {
-		return b
-	}
-	return a
-}
->>>>>>> c596a6f (Leetcode 300. 最长上升子序列 (LIS 动态规划))
